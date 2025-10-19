@@ -1,6 +1,6 @@
 {
-  "name": "render-proxy",
-  "version": "1.0.1",
+  "name": "render-proxy-dynamic",
+  "version": "1.1.0",
   "type": "module",
   "scripts": {
     "start": "node index.js"
