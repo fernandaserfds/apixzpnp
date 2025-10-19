@@ -1,13 +1,15 @@
-Render proxy (Node + Express)
+# Render Proxy (fixed for Node 18+/22)
 
-This proxy forwards all requests it receives to your RDP API (RDP_BASE env var).
-It does NOT modify payloads; it simply forwards method, path, headers and body.
+- Uses native `fetch` (Node 18+), no `node-fetch` needed.
+- Adds `/health` endpoint for Render health checks.
+- Uses `express.raw` to forward the exact request body.
 
-Env vars:
-- RDP_BASE  (e.g. http://123.123.123.123:4000)
-- PORT
-- ALLOWED_ORIGIN (for CORS)
+## Env
+- `RDP_BASE` e.g. `http://123.123.123.123:4000`
+- `ALLOWED_ORIGIN` CORS origin (e.g. your Netlify site)
 
-Run:
-1. npm install
-2. RDP_BASE=http://tu.rdp.ip:4000 PORT=3000 node index.js
+## Run locally
+```bash
+npm install
+RDP_BASE=http://localhost:4000 npm start
+```
